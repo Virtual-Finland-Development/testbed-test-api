@@ -1,0 +1,17 @@
+service: testbed-test-api
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: nodejs16.x
+
+functions:
+  getPopulation:
+    handler: testbed.getPopulation
+    events:
+      - httpApi:
+          path: /getPopulation
+          method: post
+
+plugins:
+  - serverless-offline
