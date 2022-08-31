@@ -8,7 +8,7 @@ To use in local environment:
 
 npm install -g serverless
 
-run 'npm install' on project root (installs serverless-offline plugin)
+run 'npm install' on project root
 
 serverless offline --httpPort 3001
 
