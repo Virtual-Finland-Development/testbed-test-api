@@ -12,6 +12,10 @@ run 'npm install' on project root
 
 serverless offline --httpPort 3001
 
+## Deployment
+
+Production deployment configured to main branch on push action.
+
 ---
 
 ---
