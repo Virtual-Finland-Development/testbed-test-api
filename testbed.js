@@ -1,4 +1,5 @@
 "use strict";
+const fetch = require('node-fetch')
 
 module.exports.getPopulation = async (event) => {
   const body = JSON.parse(event.body);
