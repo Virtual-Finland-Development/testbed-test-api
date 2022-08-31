@@ -4,5 +4,8 @@
   "private": true,
   "devDependencies": {
     "serverless-offline": "^9.3.0"
+  },
+  "dependencies": {
+    "node-fetch": "^3.2.10"
   }
 }
