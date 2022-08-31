@@ -14,5 +14,10 @@ functions:
           path: /getPopulation
           method: post
 
+cors:
+  - enabled: true
+  - origin: https://testbed-test-front-bucket.s3.eu-north-1.amazonaws.com/
+  - headers: 'Content-Type,Authorization'
+  - methods: 'POST'
 plugins:
   - serverless-offline
