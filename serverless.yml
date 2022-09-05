@@ -1,5 +1,5 @@
 service: testbed-test-api
-frameworkVersion: '3'
+frameworkVersion: "3"
 
 provider:
   name: aws
@@ -9,6 +9,7 @@ provider:
     cors:
       allowedOrigins:
         - https://testbed-test-front-bucket.s3.eu-north-1.amazonaws.com
+        - http://localhost:3000
       allowedHeaders:
         - Content-Type
         - Authorization
