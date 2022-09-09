@@ -9,6 +9,7 @@ provider:
     cors:
       allowedOrigins:
         - https://testbed-test-front-bucket.s3.eu-north-1.amazonaws.com
+        - https://d1117tsgnqi5r8.cloudfront.net
         - http://localhost:3000
       allowedHeaders:
         - Content-Type
