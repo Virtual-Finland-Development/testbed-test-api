@@ -21,6 +21,7 @@ module.exports.getPopulation = async (event) => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        "Authorization": event.headers.Authorization
       },
       body: JSON.stringify({ city, year }),
     }
