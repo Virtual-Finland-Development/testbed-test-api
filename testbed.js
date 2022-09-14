@@ -14,14 +14,14 @@ module.exports.getPopulation = async (event) => {
   }
 
   const { city, year } = body;
-  console.log("DEBUG", event.headers.Authorization, event)
+  
   const testbedResponse = await fetch(
     "https://gateway.testbed.fi/test/lsipii/Figure/Population?source=virtual_finland",
     {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "Authorization": event.headers.Authorization
+        "Authorization": event.headers.authorization || event.headers.Authorization
       },
       body: JSON.stringify({ city, year }),
     }
