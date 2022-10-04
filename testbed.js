@@ -15,17 +15,15 @@ module.exports.getPopulation = async (event) => {
 
   const { city, year } = body;
 
-  const testbedResponse = await fetch(
-    "https://gateway.testbed.fi/test/lsipii/Figure/Population?source=virtual_finland",
-    {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "Authorization": event.headers.authorization || event.headers.Authorization
-      },
-      body: JSON.stringify({ city, year }),
-    }
-  );
+  const testbedResponse = await fetch("https://gateway.testbed.fi/test/lsipii/Figure/Population?source=virtual_finland", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: event.headers.authorization || event.headers.Authorization,
+      "X-authorization-provider": event.headers["X-authorization-provider"] || event.headers["x-authorization-provider"],
+    },
+    body: JSON.stringify({ city, year }),
+  });
 
   const testbedData = await testbedResponse.json();
 
