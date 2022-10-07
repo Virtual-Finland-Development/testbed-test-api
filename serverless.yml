@@ -25,6 +25,12 @@ functions:
       - httpApi:
           path: /getPopulation
           method: post
+  findJobPostings:
+    handler: testbed.findJobPostings
+    events:
+      - httpApi:
+          path: /findJobPostings
+          method: post
 
 plugins:
   - serverless-offline

@@ -15,20 +15,62 @@ module.exports.getPopulation = async (event) => {
 
   const { city, year } = body;
 
-  const testbedResponse = await fetch("https://gateway.testbed.fi/test/lsipii/Figure/Population?source=virtual_finland", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: event.headers.authorization || event.headers.Authorization,
-      "X-authorization-provider": event.headers["X-authorization-provider"] || event.headers["x-authorization-provider"],
-    },
-    body: JSON.stringify({ city, year }),
-  });
+  const testbedResponse = await fetch(
+    "https://gateway.testbed.fi/test/lsipii/Figure/Population?source=virtual_finland",
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization:
+          event.headers.authorization || event.headers.Authorization,
+        "X-authorization-provider":
+          event.headers["X-authorization-provider"] ||
+          event.headers["x-authorization-provider"],
+      },
+      body: JSON.stringify({ city, year }),
+    }
+  );
 
   const testbedData = await testbedResponse.json();
 
   return {
     statusCode: testbedData?.status || 200,
     body: JSON.stringify(testbedData),
+  };
+};
+
+module.exports.findJobPostings = async (event) => {
+  const body = JSON.parse(event.body);
+
+  if (!body) {
+    return {
+      statusCode: 422,
+      body: JSON.stringify({
+        message: "Request body is missing",
+      }),
+    };
+  }
+
+  const response = await fetch(
+    "https://gateway.testbed.fi/test/lassipatanen/Job/JobPosting?source=tyomarkkinatori",
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization:
+          event.headers.authorization || event.headers.Authorization,
+        "X-authorization-provider":
+          event.headers["X-authorization-provider"] ||
+          event.headers["x-authorization-provider"],
+      },
+      body: event.body,
+    }
+  );
+
+  let responseJson = await response.json();
+
+  return {
+    statusCode: responseJson?.status || 200,
+    body: JSON.stringify(responseJson),
   };
 };
