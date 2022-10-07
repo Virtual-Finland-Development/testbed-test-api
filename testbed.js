@@ -53,6 +53,7 @@ module.exports.findJobPostings = async (event) => {
         "Content-Type": "application/json",
         Authorization:
           event.headers.authorization || event.headers.Authorization,
+        "X-authorization-provider": event.headers["X-authorization-provider"] || event.headers["x-authorization-provider"],
       },
       body: event.body,
     }
