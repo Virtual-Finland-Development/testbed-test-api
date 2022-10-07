@@ -29,7 +29,7 @@ functions:
     handler: testbed.findJobPostings
     events:
       - httpApi:
-          path: /find-job-postings
+          path: /findJobPostings
           method: post
 
 plugins:
