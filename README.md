@@ -1,5 +1,7 @@
 # testbed-test-api
 
+> NOTE: Archived repository: use [Testbed API](https://github.com/Virtual-Finland-Development/testbed-api) project instead.
+
 Using serverless framework to route testbed-test-front api calls to Virtual Finland testbed.
 
 ## Usage
